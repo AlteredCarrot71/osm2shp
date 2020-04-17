@@ -83,7 +83,7 @@ namespace OSM2SHP // TODO, let the user give a namespace
 					          {
 						          
 						            case "id" :
-							              _id = Convert.ToInt32(xmlAttribute.Value);
+							              _id = Convert.ToUInt64(xmlAttribute.Value);
 							              break;
 						          
 						            case "timestamp" :

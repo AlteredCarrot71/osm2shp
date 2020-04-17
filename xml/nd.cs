@@ -8,9 +8,9 @@ namespace OSM2SHP // TODO, let the user give a namespace
     public class nd
     {
         
-        protected int _reff = 0;
+        protected UInt64 _reff = 0;
         
-        public int reff
+        public UInt64 reff
         {
             get { return _reff; }
             set { _reff = value; }
@@ -44,7 +44,7 @@ namespace OSM2SHP // TODO, let the user give a namespace
 					          {
 						          
 						            case "ref" :
-							              _reff = Convert.ToInt32(xmlAttribute.Value);
+							              _reff = Convert.ToUInt64(xmlAttribute.Value);
 							              break;
 						          
   						

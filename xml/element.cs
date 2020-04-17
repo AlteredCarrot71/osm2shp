@@ -1,7 +1,4 @@
-﻿
-using System;
-using System.Xml;
-using System.Collections;
+﻿using System;
 
 namespace OSM2SHP
 {
@@ -11,14 +8,14 @@ namespace OSM2SHP
     public class element
     {
 
-        protected int _id = 0;
+        protected UInt64 _id = 0;
         protected DateTime _timestamp = DateTime.MinValue;
         protected string _visible = "";
         protected bool _deleted = false;
         protected ndCollection _ndCollection = new ndCollection();
         protected tagCollection _tagCollection = new tagCollection();
 
-        public int id
+        public UInt64 id
         {
             get { return _id; }
             set { _id = value; }

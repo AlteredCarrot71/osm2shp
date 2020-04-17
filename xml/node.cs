@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Xml;
 using System.Collections;
 
@@ -24,14 +23,13 @@ namespace OSM2SHP // TODO, let the user give a namespace
             get { return _lat; }
             set { _lat = value; }
         }
-				
+
         public string lon
         {
             get { return _lon; }
             set { _lon = value; }
         }
-	
-    
+
         internal virtual void SaveXml(XmlNode xmlParent)
         {
             XmlAttribute xmlAttribute = null;
@@ -83,9 +81,7 @@ namespace OSM2SHP // TODO, let the user give a namespace
             }
           
         }
-    
-  
-    
+
         internal virtual void ReadXml(XmlElement xmlParent)
         {
 	          if ( xmlParent.Attributes != null )
@@ -96,7 +92,7 @@ namespace OSM2SHP // TODO, let the user give a namespace
 					          {
 						          
 						            case "id" :
-							              _id = Convert.ToInt32(xmlAttribute.Value);
+							              _id = Convert.ToUInt64(xmlAttribute.Value);
 							              break;
 						          
 						            case "timestamp" :
@@ -148,15 +144,11 @@ namespace OSM2SHP // TODO, let the user give a namespace
 				      
 		        }
       }
-    
-  
     }
-	
+
     #region Collection
-    
     public class nodeCollection : IEnumerator, IEnumerable
     {
-        
         private ArrayList _list = new ArrayList();
 		
 		    public int Count
@@ -170,7 +162,7 @@ namespace OSM2SHP // TODO, let the user give a namespace
 			      set { _list[index] = value; }
 		    }
 
-            public node GetByRef(int id)
+            public node GetByRef(UInt64 id)
             {
                 foreach (node nod in _list)
                     if (nod.id == id)
@@ -219,10 +211,7 @@ namespace OSM2SHP // TODO, let the user give a namespace
 		    }
 
 		    #endregion
-  
-
     }
-    
     #endregion
 }
 
